@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Esse recurso será utilizado para capturar as opções escolhidas pelo usuário no menu.
  */
 import conta_bancaria.model.Conta; // importada a classr Conta do pacote .model e declarada nas variaveis abaixo
-
+import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.util.Cores;
 /* 
  * Importamos a Classe Cores, responsável por definir constantes que permitem 
@@ -31,12 +31,11 @@ public class Menu {
 		Conta c1 = new Conta(1, 123, 1, "Cintia Dourado", 500000.00f);
 
 		c1.setSaldo(600000.00f);
-		System.out.println("O Saldo da Conta eh: " + c1.getSaldo());
-
-		Conta c2 = new Conta(2, 456, 2, "Priscila Lins", 500000.00f);
-		System.out.println("O Saldo da Conta eh: " + c2.getSaldo());
-
+		System.out.println("O Saldo da Conta 01 (Cintia) eh: " + c1.getSaldo());
 		c1.visualizar();
+		
+		Conta c2 = new Conta(2, 456, 2, "Priscila Lins", 500000.00f);
+		System.out.println("O Saldo da Conta 02 (Priscila) eh: " + c2.getSaldo());
 		c2.visualizar();
 		
 		System.out.println(c1.sacar(1000));
@@ -50,6 +49,20 @@ public class Menu {
 		c2.depositar(1000);
 		System.out.println("\nO Saldo da Conta eh: " + c2.getSaldo());
 		
+		
+		// Instanciar Objetos da Classe ContaCorrente
+		
+		ContaCorrente cc1 = new ContaCorrente(3, 456 ,1, "Thuany Silva", 1000000.00f, 100000.00f);
+		cc1.visualizar();
+		
+		System.out.println(cc1.sacar(2000000.00f));
+		cc1.visualizar();
+		
+		System.out.println(cc1.sacar(2000.00f));
+		cc1.visualizar();
+		
+		cc1.depositar(5000.00f);
+		cc1.visualizar();
 		
 		while (true) {
 			/*

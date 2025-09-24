@@ -18,8 +18,7 @@ public class Conta {
 		this.saldo = saldo;
 	}
 
-	// Metodos Get e Set -- sao obrigatorios -- Source > Generate Getters and
-	// Setters
+	// Metodos Get e Set -- sao obrigatorios -- Source > Generate Getters and Setters
 	public int getNumero() {
 		return numero;
 	}
@@ -62,7 +61,7 @@ public class Conta {
 
 	public boolean sacar(float valor) {
 		if(this.saldo < valor) {
-			System.out.println("Saldo insuficiente");
+			System.out.println("Saldo insuficiente para o saque enviado");
 			return false;
 		}
 		this.saldo = this.saldo - valor;
@@ -75,7 +74,7 @@ public class Conta {
 	
 	public void visualizar() {
 
-		String tipo = " ";
+		String tipo = "\n ";
 
 		switch (this.tipo) {
 		case 1 -> tipo = "Conta Corrente";
@@ -84,12 +83,11 @@ public class Conta {
 		}
 		System.out.println("\n**********************************");
 		System.out.println("\nDados da Conta");
-		System.out.println("\n**********************************");
-		System.out.printf("\nNumero da Conta: %d\n", this.numero);
-		System.out.printf("\nNumero da Agencia: %d\n", this.agencia);
-		System.out.printf("\ntipo da Conta: %s\n", tipo);
-		System.out.printf("\nTitular da Conta: %s\n", this.titular);
-		System.out.printf("\nSaldo da Conta: %.2f\n", this.saldo);
+		System.out.printf("\nNumero da Conta: %d", this.numero);
+		System.out.printf("\nNumero da Agencia: %d", this.agencia);
+		System.out.printf("\ntipo da Conta: %s", tipo);
+		System.out.printf("\nTitular da Conta: %s", this.titular);
+		System.out.printf("\nSaldo da Conta: %.2f", this.saldo);
 
 	}
 

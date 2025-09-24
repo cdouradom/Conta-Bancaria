@@ -20,21 +20,18 @@ public class ContaCorrente extends Conta{
 
 	@Override //indica que estou sobrescrevendo o metodo
 	public boolean sacar(float valor) { 
-		
 		if(this.getSaldo() + this.getLimite() < valor) {
 			System.out.println("\n Saldo Insuficiente!");
 			return false;
 		}
-		
 		this.setSaldo(this.getSaldo() - valor);
-		return true;
-		
+		return true;	
 	}
 	
 	@Override //indica que estou sobrescrevendo o metodo
 	public void visualizar() {
 		super.visualizar();
-		System.out.printf("Limite da Conta: R$ %.2f\n", this.limite);
+		System.out.printf("\nLimite da Conta: R$ %.2f\n", this.limite);
 	}
 	
 }

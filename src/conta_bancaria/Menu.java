@@ -6,6 +6,7 @@ import java.util.Scanner;
  */
 import conta_bancaria.model.Conta; // importada a classr Conta do pacote .model e declarada nas variaveis abaixo
 import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 /* 
  * Importamos a Classe Cores, responsável por definir constantes que permitem 
@@ -27,42 +28,52 @@ public class Menu {
 		 * correspondente à opção do menu escolhida pelo usuário.
 		 */
 
-		// instanciar objetos da classe conta
+		//Testes da Classe Conta
 		Conta c1 = new Conta(1, 123, 1, "Cintia Dourado", 500000.00f);
-
 		c1.setSaldo(600000.00f);
-		System.out.println("O Saldo da Conta 01 (Cintia) eh: " + c1.getSaldo());
+		System.out.println("\nO Saldo da Conta 01 (Cintia) eh: " + c1.getSaldo());
 		c1.visualizar();
 		
 		Conta c2 = new Conta(2, 456, 2, "Priscila Lins", 500000.00f);
-		System.out.println("O Saldo da Conta 02 (Priscila) eh: " + c2.getSaldo());
+		System.out.println("\n**********************************\n\nO Saldo da Conta 02 (Priscila) eh: " + c2.getSaldo());
 		c2.visualizar();
-		
-		System.out.println(c1.sacar(1000));
-		System.out.println("\nO Saldo da Conta eh: " + c1.getSaldo());
-		System.out.println(c2.sacar(10000000));
-		System.out.println("\nO Saldo da Conta eh: " + c2.getSaldo());
 
-		
+		//Teste Sacar da Conta 1 - Cintia
+		System.out.println(c1.sacar(1000));
+		System.out.println("\n\nO Saldo da Conta 1 (Cintia) eh: " + c1.getSaldo() + "\n**********************************\n");
+		//Teste Sacar da Conta 2 - Priscila
+		System.out.println(c2.sacar(10000000));
+		System.out.println("O Saldo da Conta 2 (Priscila) eh: "+ c2.getSaldo() + "\n**********************************\n");
+		//Teste Depositar na Conta 1 - Cintia
 		c1.depositar(5000);
-		System.out.println("\nO Saldo da Conta eh: " + c1.getSaldo());
+		System.out.println("O Saldo da Conta 1 (Cintia) eh: " + c1.getSaldo() + "\n**********************************\n");
+		//Teste Depositar na Conta 2 - Priscila
 		c2.depositar(1000);
-		System.out.println("\nO Saldo da Conta eh: " + c2.getSaldo());
+		System.out.println("\n\nO Saldo da Conta 2 (Priscila) eh: " + c2.getSaldo() + "\n**********************************\n");
 		
 		
-		// Instanciar Objetos da Classe ContaCorrente
+		// Instanciar Objetos da Classe ContaCorrente - Testes		
+		ContaCorrente c3 = new ContaCorrente(3, 789 ,1, "Thuany Silva", 1000000.00f, 1000000.00f);
+		c3.visualizar();
+		System.out.println(c3.sacar(2000.00f)); //Teste Sacar da Conta 3
+		c3.visualizar();
+		System.out.println(c3.sacar(2000000.00f)); //Teste Sacar da Conta 3
+		c3.visualizar();
+		c3.depositar(5000.00f); //Teste DEPOSITAR na Conta 3
+		c3.visualizar();
 		
-		ContaCorrente cc1 = new ContaCorrente(3, 456 ,1, "Thuany Silva", 1000000.00f, 100000.00f);
-		cc1.visualizar();
+		/*
+		// Instanciar Objetos da Classe ContaPoupanca - Testes		
+		ContaPoupanca cp1 = new ContaPoupanca(4, 001 ,2, "Maria Joana", 50000.00f, 15);
+		cp1.visualizar();
 		
-		System.out.println(cc1.sacar(2000000.00f));
-		cc1.visualizar();
+		System.out.println(cp1.sacar(2000000.00f)); //Teste Sacar da ContaP 4
+		cp1.visualizar();
+		System.out.println(cp1.sacar(2000.00f)); //Teste Sacar da ContaP 4
+		cp1.visualizar();
+		cp1.depositar(5000.00f); //Teste DEPOSITAR na ContaP 4
+		cp1.visualizar();	*/
 		
-		System.out.println(cc1.sacar(2000.00f));
-		cc1.visualizar();
-		
-		cc1.depositar(5000.00f);
-		cc1.visualizar();
 		
 		while (true) {
 			/*

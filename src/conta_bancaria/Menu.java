@@ -27,30 +27,28 @@ public class Menu {
 		 * Declaramos a variável do tipo int chamada opcao, que armazenará o número
 		 * correspondente à opção do menu escolhida pelo usuário.
 		 */
-
+/*
 		//Testes da Classe Conta
-		Conta c1 = new Conta(1, 123, 1, "Cintia Dourado", 500000.00f);
-		c1.setSaldo(600000.00f);
-		System.out.println("\nO Saldo da Conta 01 (Cintia) eh: " + c1.getSaldo());
+		Conta c1 = new Conta(1, 123, 1, "Cintia Dourado", 505000.00f);
+		c1.setSaldo(600000.00f); // atualizando o saldo
 		c1.visualizar();
-		
-		Conta c2 = new Conta(2, 456, 2, "Priscila Lins", 500000.00f);
-		System.out.println("\n**********************************\n\nO Saldo da Conta 02 (Priscila) eh: " + c2.getSaldo());
-		c2.visualizar();
-
 		//Teste Sacar da Conta 1 - Cintia
 		System.out.println(c1.sacar(1000));
-		System.out.println("\n\nO Saldo da Conta 1 (Cintia) eh: " + c1.getSaldo() + "\n**********************************\n");
-		//Teste Sacar da Conta 2 - Priscila
-		System.out.println(c2.sacar(10000000));
-		System.out.println("O Saldo da Conta 2 (Priscila) eh: "+ c2.getSaldo() + "\n**********************************\n");
+		System.out.println("O Saldo da Conta 1 (Cintia) apos o saque eh: " + c1.getSaldo());
 		//Teste Depositar na Conta 1 - Cintia
 		c1.depositar(5000);
-		System.out.println("O Saldo da Conta 1 (Cintia) eh: " + c1.getSaldo() + "\n**********************************\n");
+		System.out.println("O Saldo da Conta 1 (Cintia) apos o deposito eh: " + c1.getSaldo());
+
+			
+		Conta c2 = new Conta(2, 456, 1, "Priscila Lins", 503000.00f);
+		c2.visualizar();
+		//Teste Sacar da Conta 2 - Priscila
+		System.out.println(c2.sacar(10000000));
+		System.out.println("O Saldo da Conta 2 (Priscila) apos o saque eh: "+ c2.getSaldo());
 		//Teste Depositar na Conta 2 - Priscila
 		c2.depositar(1000);
-		System.out.println("\n\nO Saldo da Conta 2 (Priscila) eh: " + c2.getSaldo() + "\n**********************************\n");
-		
+		System.out.println("O Saldo da Conta 2 (Priscila) apos o deposito eh: " + c2.getSaldo());
+*/
 		
 		// Instanciar Objetos da Classe ContaCorrente - Testes		
 		ContaCorrente c3 = new ContaCorrente(3, 789 ,1, "Thuany Silva", 1000000.00f, 1000000.00f);
@@ -62,17 +60,15 @@ public class Menu {
 		c3.depositar(5000.00f); //Teste DEPOSITAR na Conta 3
 		c3.visualizar();
 		
-		/*
 		// Instanciar Objetos da Classe ContaPoupanca - Testes		
 		ContaPoupanca cp1 = new ContaPoupanca(4, 001 ,2, "Maria Joana", 50000.00f, 15);
 		cp1.visualizar();
-		
 		System.out.println(cp1.sacar(2000000.00f)); //Teste Sacar da ContaP 4
 		cp1.visualizar();
 		System.out.println(cp1.sacar(2000.00f)); //Teste Sacar da ContaP 4
 		cp1.visualizar();
 		cp1.depositar(5000.00f); //Teste DEPOSITAR na ContaP 4
-		cp1.visualizar();	*/
+		cp1.visualizar();
 		
 		
 		while (true) {

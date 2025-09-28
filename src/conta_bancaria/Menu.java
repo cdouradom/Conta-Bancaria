@@ -123,6 +123,7 @@ public class Menu {
 				System.out.println(Cores.TEXT_PURPLE_BOLD + "Deletar a Conta!\n\n");
 
 				deletarConta();
+				
 				keyPress();
 				break;
 			case 7:

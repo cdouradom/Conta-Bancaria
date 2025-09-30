@@ -8,7 +8,7 @@ public class ContaPoupanca extends Conta{ // extends puxa da super classe Conta
 	 *  método construtor 
 	 *  adicionado atraves da subclasse ContaPoupanca da linha 3 apos puxar d super classe com o extends Conta
 	 */
-	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, int aniversrio) {
+	public ContaPoupanca(int numero, int agencia, int tipo, String titular, float saldo, int aniversario) {
 		super(numero, agencia, tipo, titular, saldo);
 		this.aniversario = aniversario; // especifico de CP declarada e acrescentada 
 	}
@@ -29,6 +29,6 @@ public class ContaPoupanca extends Conta{ // extends puxa da super classe Conta
 	@Override //indica que estou sobrescrevendo o metodo >> Polimorfismo de Sobreposição (Sobrescrita de Método)
 	public void visualizar() {
 		super.visualizar();
-		System.out.printf("Aniversário da conta: " + this.aniversario);
+		System.out.printf("Aniversário da conta: %d\n", this.aniversario);
 	}
 }

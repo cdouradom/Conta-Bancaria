@@ -11,6 +11,7 @@ public interface ContaRepository { // nesta etapa, apenas definimos as assinatur
 	public void atualizar(Conta conta);
 	public void procurarPorNumero(int numero);
 	public void deletar(int numero);
+	public void listarPorTitular(String titular);
 	
 	//Metodos de operações bancárias - que serão implementados na classe ContaController
 	

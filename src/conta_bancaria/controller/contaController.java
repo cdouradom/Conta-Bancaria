@@ -2,6 +2,7 @@ package conta_bancaria.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import conta_bancaria.model.Conta; // importando a classe Conta depois de declarada abaixo
 import conta_bancaria.repository.ContaRepository; // importando a classe da interface ContaRepository depois de declarada abaixo
@@ -89,20 +90,47 @@ public class ContaController implements ContaRepository {
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
-
+		var conta = buscarNaCollection(numero);
+		if (conta != null) {
+			if(conta.sacar(valor) == true)
+				System.out.printf(Cores.ANSI_WHITE_BACKGROUND_BRIGHT + Cores.TEXT_PURPLE_BOLD + "O saque no valor %.2f, na conta: %d foi efetuado com sucesso!\n", valor, numero);
+		}else {System.out.printf(Cores.TEXT_PURPLE_UNDERLINED + Cores.ANSI_WHITE_BACKGROUND_BRIGHT + "A conta '%d' nao foi encontrada!\n", numero);}	
 	}
 
 	@Override
 	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
-
+		var conta = buscarNaCollection(numero);
+		if (conta != null) {
+			conta.depositar(valor);
+				System.out.printf(Cores.ANSI_WHITE_BACKGROUND_BRIGHT + Cores.TEXT_PURPLE_BOLD + "O deposito no valor %.2f, na conta: %d foi efetuado com sucesso!\n", valor, numero);
+		}else {System.out.printf(Cores.TEXT_PURPLE_UNDERLINED + Cores.ANSI_WHITE_BACKGROUND_BRIGHT + "A conta '%d' nao foi encontrada!\n", numero);}	
 	}
 
 	@Override
 	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-		// TODO Auto-generated method stub
-
+		var contaOrigem = buscarNaCollection(numeroOrigem);
+		var contaDestino = buscarNaCollection(numeroDestino);
+		if (contaOrigem != null && contaDestino != null) {
+			if(contaOrigem.sacar(valor) == true);{
+				contaDestino.depositar(valor);
+				System.out.printf(Cores.ANSI_WHITE_BACKGROUND_BRIGHT + Cores.TEXT_PURPLE_BOLD 
+						+ "\n A transferência no valor de %.2f da conta %d foi efetuada com sucesso na conta %d!", valor, numeroOrigem, numeroDestino);
+			}}else {
+			System.out.printf(Cores.TEXT_PURPLE_UNDERLINED + Cores.ANSI_WHITE_BACKGROUND_BRIGHT + "A conta  de Origem e/ou Destino nao foram encontradas!\n");
+		}	
+	}
+	
+	@Override
+	public void listarPorTitular(String titular) {
+		List<Conta> listaTitulares = listaContas.stream()
+				.filter(c -> c.getTitular().toUpperCase().contains(titular.toUpperCase()))
+				.collect(Collectors.toList());
+		if(listaTitulares.isEmpty()) {
+			System.out.printf("\nNenhuma conta foi encontrada para titulares com nome: %s", titular);
+		}
+		for(var conta : listaTitulares) {
+			conta.visualizar();
+		}
 	}
 
 	// Metodos Auxiliares
@@ -119,4 +147,5 @@ public class ContaController implements ContaRepository {
 		}
 		return null;
 	}
+
 }
